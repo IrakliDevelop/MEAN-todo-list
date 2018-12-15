@@ -2,7 +2,8 @@ const   express     = require("express"),
         app         = express(),
         mongoose    = require("mongoose"),
         bodyParser  = require("body-parser"),
-        Todo        = require("./models/todo")
+        Todo        = require("./models/todo"),
+        cors        = require("cors")
 
 
 //mongoose setup
@@ -10,6 +11,8 @@ mongoose.connect("mongodb://localhost/todo_ang_node",(err)=>{
     if (err) console.log(err);
 });
 
+
+app.use(cors());
 
 //body parser setup
 app.use(bodyParser.urlencoded({extended:true}));
