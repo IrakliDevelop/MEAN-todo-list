@@ -1,0 +1,16 @@
+{
+  "name": "todo_angular_node",
+  "version": "1.0.0",
+  "description": "todo list ap with anngular and node",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Irakli Iremashvili",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.0"
+  }
+}
