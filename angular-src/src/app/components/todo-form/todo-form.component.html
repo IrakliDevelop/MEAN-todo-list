@@ -11,6 +11,6 @@
 
 <div class="container">
   <ul *ngFor="let item of todos" class="list-group">
-    <li class="list-group-item">{{item.text}} <button (click) = "deleteClick()" class="btn btn-xs btn-danger">X</button></li>
+    <li class="list-group-item">{{item.text}} <button id="{{item._id}}" (click) = "deleteClick($event)" class="btn btn-xs btn-danger btn-lock" style="float:right; color: aliceblue">X</button></li>
   </ul>
 </div>

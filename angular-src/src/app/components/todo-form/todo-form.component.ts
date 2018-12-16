@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
 import {GetAllTodosService} from '../../services/get-all-todos.service'
 import {AddNewTodoService} from '../../services/add-new-todo.service'
+import {DeleteTodoService} from '../../services/delete-todo.service'
 
 @Component({
   selector: 'app-todo-form',
@@ -15,7 +15,8 @@ export class TodoFormComponent implements OnInit {
 
   constructor(
     private getAllTodos: GetAllTodosService,
-    private addTodo: AddNewTodoService
+    private addTodo: AddNewTodoService,
+    private deleteTodo: DeleteTodoService
     ) { }
 
   //getting all todos
@@ -39,5 +40,11 @@ export class TodoFormComponent implements OnInit {
     location.reload();
   }
 
+  deleteClick(event){
+    let id = event.target.id;
+    this.deleteTodo.deleteTodo(id).subscribe(data =>{
+    });
+    location.reload();
+  }
 
 }

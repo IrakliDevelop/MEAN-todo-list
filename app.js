@@ -3,7 +3,8 @@ const   express     = require("express"),
         mongoose    = require("mongoose"),
         bodyParser  = require("body-parser"),
         Todo        = require("./models/todo"),
-        cors        = require("cors")
+        cors        = require("cors"),
+        path        = require("path");
 
 
 //mongoose setup
@@ -11,6 +12,8 @@ mongoose.connect("mongodb://localhost/todo_ang_node",(err)=>{
     if (err) console.log(err);
 });
 
+//Static folder
+app.use(express.static(path.join(__dirname, '/public')));
 
 app.use(cors());
 
@@ -51,6 +54,21 @@ app.post("/todos", (req,res) => {
     })
 });
 
+app.delete("/todos/", (req,res)=>{
+    const id = req.body._id;
+    console.log(id)
+    Todo.findOneAndDelete({"_id":id}, (err,deleted)=>{
+        if (err){
+            throw err;
+        } else {
+            res.json(deleted);
+        }
+    })
+})
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/index.html'));
+  });
 
 
 
