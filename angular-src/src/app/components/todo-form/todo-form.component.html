@@ -7,3 +7,10 @@
     </div>
   </form>
 </div>
+
+
+<div class="container">
+  <ul *ngFor="let item of todos" class="list-group">
+    <li class="list-group-item">{{item.text}} <button (click) = "deleteClick()" class="btn btn-xs btn-danger">X</button></li>
+  </ul>
+</div>

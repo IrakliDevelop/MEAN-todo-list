@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import {GetAllTodosService} from '../../services/get-all-todos.service'
+import {AddNewTodoService} from '../../services/add-new-todo.service'
 
 @Component({
   selector: 'app-todo-form',
@@ -12,18 +13,30 @@ export class TodoFormComponent implements OnInit {
   todos:[];
   text:String;
 
-  constructor(private getAllTodos: GetAllTodosService) { }
+  constructor(
+    private getAllTodos: GetAllTodosService,
+    private addTodo: AddNewTodoService
+    ) { }
 
   //getting all todos
   ngOnInit() {
     this.getAllTodos.fetchData().subscribe(todos =>{
-      console.log(todos[0]["text"]);
-    })
+      this.todos = todos;
+      for (const iterator of todos) {
+        console.log(iterator);
+      }
+    });
   }
 
   //form submit
   onSubmit(){
-    console.log(this.text);
+    const todo = {
+      text:this.text
+    }
+    this.addTodo.postTodo(todo).subscribe(data =>{
+      console.log(data);
+    });
+    location.reload();
   }
 
 

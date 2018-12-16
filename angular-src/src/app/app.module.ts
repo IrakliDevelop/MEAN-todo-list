@@ -7,6 +7,9 @@ import {RouterModule, Routes} from '@angular/router'
 import { AppComponent } from './app.component';
 import { TodoFormComponent } from './components/todo-form/todo-form.component';
 
+import {GetAllTodosService} from './services/get-all-todos.service'
+import {AddNewTodoService} from './services/add-new-todo.service'
+
 const appRoutes: Routes = [
   {path:'', component:TodoFormComponent}
 ]
@@ -22,7 +25,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [],
+  providers: [GetAllTodosService,AddNewTodoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
