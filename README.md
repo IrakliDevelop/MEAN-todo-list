@@ -1,2 +1,2 @@
-#Todo app made with Angular express and mongoose
-#supports add and delete
+<b>Todo app made with Angular express and mongoose</b>
+<b>supports add and delete</b>
