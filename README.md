@@ -1,2 +1,8 @@
-<b>Todo app made with Angular express and mongoose</b>
-<b>supports add and delete</b>
+## Todo app 
+### supports add and delete tasks
+
+#### Tools used :
+  * Angular 7
+  * Node js
+  * Express js
+  * MongoDB
