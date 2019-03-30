@@ -1,9 +1,10 @@
+<ngx-loading [show]="loading"></ngx-loading>
 <div class="container">
   <form (submit) = "onSubmit()">
     <div class="form-group">
       <label>New Todo</label>
       <input type="text" class="form-control" [(ngModel)]="text" name="text">
-      <input type="submit" value="add" class="btn btn-primary">
+      <button class="btn btn-primary">add</button>
     </div>
   </form>
 </div>

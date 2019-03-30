@@ -1,14 +1,14 @@
-const express = require("express"),
-    app = express(),
-    mongoose = require("mongoose"),
-    bodyParser = require("body-parser"),
-    Todo = require("./models/todo"),
-    cors = require("cors"),
-    path = require("path");
+const express = require("express");
+const app = express();
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const Todo = require("./models/todo");
+const cors = require("cors");
+const path = require("path");
 
 
 //mongoose setup
-mongoose.connect("mongodb://localhost/todo_ang_node", (err) => {
+mongoose.connect("mongodb://localhost/todo_ang_node", { useNewUrlParser: true } , (err) => {
     if (err) console.log(err);
 });
 
